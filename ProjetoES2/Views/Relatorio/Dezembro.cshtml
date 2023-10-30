@@ -1,0 +1,72 @@
+﻿@model ProjetoES2.Models.RelatorioModel
+
+@{
+    ViewData["Title"] = "Listagem de tarefas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    
+</p>
+<div class="text-center">
+<h3>Tarefas de Dezembro</h3>
+</div>
+<br/>
+
+<p>
+    
+</p>
+
+<p>
+    
+</p>
+
+
+
+    
+<table class="table">
+    
+    
+    
+    <thead>
+    <tr>
+        <th>
+            <h4>Descrição</h4>
+        </th>
+        <th>
+            <h4>Preço por Hora</h4>
+        </th>
+
+
+       
+
+       
+
+    </tr>
+    </thead>
+    <tbody>
+    
+   
+    @foreach (var x in Model.tarefas)
+    {
+        <tr>
+                <td>
+                    @Html.DisplayFor(item=>x.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(item=>x.PrecoHora)
+                </td>
+                
+
+            </tr>
+        
+    }
+</table>
+<p></p>
+<dt> Numero de horas gastas em Dezembro: @Model.HorasTotais </dt>
+<p></p>
+<dt> Preço Total do mês de Dezembro em Tarefas: @Model.PrecoTotal</dt>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>

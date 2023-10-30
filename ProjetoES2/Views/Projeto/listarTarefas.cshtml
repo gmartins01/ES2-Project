@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
+@{
+    ViewData["Title"] = "Listagem de tarefas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    
+</p>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button"  asp-controller="Projeto" asp-action="AdicionarTarefa"> Adicionar tarefa ao projeto</a>
+</div>
+
+<br/>
+
+
+<h1> Listagem de Tarefas</h1>
+
+    
+<table class="table" id="tabela">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </th>
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.DataFim)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+        <th>
+            
+        </th>
+                
+               
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+
+            <td>
+                <a asp-action="DesassociarTarefa" asp-route-id="@item.IdTarefa">Desassociar Tarefa</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>

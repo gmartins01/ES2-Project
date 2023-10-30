@@ -1,0 +1,41 @@
+﻿@model ProjetoES2.Entities.Projeto
+@{
+  ViewData["Title"] = "Criar novo projeto";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    
+  <h1 class="display-4">Adicionar novo Projeto </h1>
+
+  </div>
+
+<div class="row">
+    <div class="col-md-4">
+       <form asp-controller="Projeto" asp-action="Criar" method="post">
+         
+  <div class="form-group">
+    <label  class="control-label">Nome do Projeto</label>
+    <input type="text" asp-for="Nome" class="form-control">
+    <span asp-validation-for="Nome" class="text-danger"></span>
+
+  </div>
+  <div class="form-group">
+    <label  class="control-label">Nome do Cliente</label>
+    <input type="text" asp-for="NomeCliente" class="form-control">
+    <span asp-validation-for="NomeCliente" class="text-danger"></span>
+  </div>
+
+  <div class="form-group">
+    <label  class="control-label"> Preço por Hora</label>
+    <input type="number" asp-for="PrecoHora" class="form-control">
+    <span asp-validation-for="PrecoHora" class="text-danger"></span>
+  </div>
+  <p></p>
+
+         <input type="submit" class="btn btn-primary" value="Criar"/>
+         
+  <a asp-controller="Projeto" asp-action="Index" role="button">Voltar</a>
+</form>
+
+</div>
+</div>

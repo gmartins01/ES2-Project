@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Projeto>
+@{
+    ViewData["Title"] = "Listagem de Projetos";
+}
+
+  
+  <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button"  asp-controller="Projeto" asp-action="criar"> Criar novo projeto</a>
+  </div>
+  
+  <p>
+    
+  </p>
+  
+    <h1> Listagem de Projetos</h1>
+    
+    <table class="table" id="tabela">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeCliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PrecoHora)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem =>item.NomeCliente)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            <td>
+                            <a  asp-action="editar" asp-route-id="@item.IdProjeto">Editar</a> |
+                            <a  asp-action="ListarTarefas" asp-route-id="@item.IdProjeto">Tarefas</a> |
+                            <a  asp-action="delete" asp-route-id="@item.IdProjeto">Delete</a>
+            </td>
+        </tr>
+        }
+    </table>
+
